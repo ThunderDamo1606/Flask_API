@@ -1,92 +1,152 @@
 /* General reset and body styling */
 body, html {
     margin: 0;
-    font-family: sans-serif;
-    background-color: #f0f0f0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #74ebd5 0%, #ACB6E5 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-/* Content wrapper for pages */
+/* Content wrapper */
 .content {
-    margin: 50px auto;
-    width: 400px;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    width: 420px;
+    padding: 25px;
+    background: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.content:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.2);
+}
+
+/* Heading */
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 28px;
 }
 
 /* Form styling */
 .form {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 18px;
 }
 
+label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #555;
+}
+
+/* Inputs and select */
 input[type="text"], select {
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid #aaa;
-    border-radius: 5px;
+    padding: 12px;
+    font-size: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
     width: 100%;
     box-sizing: border-box;
+    transition: all 0.2s ease;
 }
 
+input[type="text"]:focus, select:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 6px rgba(0,123,255,0.5);
+    outline: none;
+}
+
+/* Submit button */
 input[type="submit"] {
-    padding: 10px;
+    padding: 12px;
     font-size: 16px;
     border: none;
-    border-radius: 5px;
-    background-color: #007bff;
+    border-radius: 8px;
+    background: linear-gradient(90deg, #007bff, #00c6ff);
     color: white;
+    font-weight: bold;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: all 0.3s ease;
 }
 
 input[type="submit"]:hover {
-    background-color: #0056b3;
+    background: linear-gradient(90deg, #0056b3, #0090cc);
+    transform: scale(1.05);
 }
 
-/* Table styling for results page */
-table, td, th {
-    border: 1px solid #aaa;
+/* Result box */
+.result {
+    text-align: center;
+    font-size: 26px;
+    margin-top: 20px;
+    font-weight: bold;
+    color: #222;
+    animation: fadeIn 0.5s ease-in-out;
 }
 
+/* Table styling */
 table {
     border-collapse: collapse;
     width: 100%;
+    margin-top: 15px;
+}
+
+table, td, th {
+    border: 1px solid #ddd;
 }
 
 th, td {
-    padding: 10px;
+    padding: 12px;
     text-align: center;
 }
 
 th {
-    height: 30px;
-    background-color: #007bff;
-    color: white;
+    background: #007bff;
+    color: #fff;
+    font-weight: bold;
 }
 
-/* Result display */
-.result {
-    text-align: center;
-    font-size: 24px;
-    margin-top: 20px;
+td {
+    background: #f9f9f9;
 }
 
+tr:hover td {
+    background: #f1f9ff;
+}
+
+/* Result container */
 .table-users {
     width: 100%;
     max-width: 500px;
-    margin: 50px auto;
+    margin: 40px auto;
     background: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    animation: slideUp 0.6s ease;
 }
 
 .table-users .header {
-    font-size: 20px;
+    font-size: 22px;
     font-weight: bold;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     text-align: center;
+    color: #333;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes slideUp {
+    from { transform: translateY(40px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
 }

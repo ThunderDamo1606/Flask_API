@@ -3,20 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <title>Review Page</title>
-    <!-- External Normalize CSS -->
+    <!-- Normalize CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-    <!-- Your custom CSS -->
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <style>
+        body {
+            background: linear-gradient(135deg, #007bff, #00c6ff);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: "Segoe UI", sans-serif;
+        }
+
+        .table-users {
+            width: 100%;
+            max-width: 500px;
+            background: #fff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            text-align: center;
+            animation: fadeIn 0.8s ease-in-out;
+        }
+
+        .table-users .header {
+            font-size: 22px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #fff;
+            background: linear-gradient(135deg, #007bff, #00c6ff);
+            padding: 12px;
+            border-radius: 10px;
+        }
+
+        .result {
+            font-size: 28px;
+            margin: 20px 0;
+            font-weight: bold;
+            color: #28a745; /* Green by default */
+        }
+
+        .result.error {
+            color: #dc3545; /* Red for errors */
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 15px;
+            text-decoration: none;
+            background: #007bff;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        a:hover {
+            background: #0056b3;
+            transform: scale(1.05);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
 </head>
 <body>
     <div class="table-users">
-        <div class="header">Calculation Result</div>
-        <div class="result">
+        <div class="header">✨ Calculation Result ✨</div>
+        <div class="result {% if 'error' in result.lower() %}error{% endif %}">
             {{ result }}
         </div>
-        <div style="margin-top: 20px;">
-            <a href="/">Back to Calculator</a>
-        </div>
+        <a href="/">🔙 Back to Calculator</a>
     </div>
 </body>
 </html>
