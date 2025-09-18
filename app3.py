@@ -1,12 +1,12 @@
 from flask import Flask, request, jsonify
 
-app = Flask(__name__)
+app3 = Flask(__name__)
 
-@app.route('/')
+@app3.route('/')
 def home():
     return "Flask server is running "
 
-@app.route('/calculator', methods=['POST'])
+@app3.route('/calculator', methods=['POST'])
 def calculator():
     data = request.get_json()
 
@@ -45,4 +45,4 @@ def calculator():
     })
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    app3.run(host="0.0.0.0", port=5000, debug=True)

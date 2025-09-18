@@ -35,7 +35,7 @@ def math():
     if operation in operations:
         result = operations[operation](num1, num2)
     else:
-        result = "❌ Invalid operation selected"
+        result = "Invalid operation selected"
 
     return render_template('results.html', result=result)
 
